@@ -23,6 +23,7 @@ import com.ibm.bluemix.catalogm.notifications.json.OneNotification;
 import com.ibm.bluemix.catalogm.notifications.json.SingleNotification;
 import com.ibm.bluemix.catalogm.util.EmailClient;
 import com.ibm.bluemix.catalogm.util.NewEmailClient;
+import com.ibm.bluemix.catalogm.util.DbUtil;
 
 
 @Service
@@ -71,7 +72,9 @@ public class Scheduler {
              e.printStackTrace();
          } catch (IOException e) {
              e.printStackTrace();
-         }
+         } finally {
+         	  DbUtil.closeConnection();         		
+        }
 
 
 	//Lets look at experimental one too 

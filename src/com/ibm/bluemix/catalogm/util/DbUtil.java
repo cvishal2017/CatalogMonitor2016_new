@@ -8,9 +8,13 @@ public class DbUtil {
     private static Connection connection = null;
 
     public static Connection getConnection() {
-        if (connection != null)
-            return connection;
-        else {
+    	try {
+    		if (connection != null && !connection.isClosed())
+            	return connection;
+    	} catch (SQLException e) {
+    		e.printStackTrace();
+    	}
+//        else {
             try {
 //				Properties prop = new Properties();
 //				InputStream inputStream = DbUtil.class.getClassLoader()
@@ -52,8 +56,21 @@ public class DbUtil {
                 e.printStackTrace();
             }
             return connection;
-        }
+//        }
 
     }
+    
+    public static void closeConnection(){
+    	try {
+    		if (connection != null) {
+    			System.out.println("Closing db connection...");
+    			connection.close();
+    		}
+    	} catch(SQLException e) {
+          	e.printStackTrace();
+        }
+    	
+    }
+
 
 }
