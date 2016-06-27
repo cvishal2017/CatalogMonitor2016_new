@@ -3,7 +3,7 @@
   <groupId>CatalogMonitor</groupId>
   <artifactId>CatalogMonitor</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>zip</packaging>
+  <packaging>war</packaging>
   	<dependencies>
 		<dependency> 
 			<groupId>com.ibm.nosql</groupId>
@@ -120,7 +120,10 @@
 		<artifactId>maven-assembly-plugin</artifactId>
 		<version>2.5.3</version>
 		<configuration>
-			<directory>output</directory>
+			<descriptors>
+				<descriptor>packageDescriptor.xml</descriptor>
+			</descriptors>
+			<tarLongFileMode>posix</tarLongFileMode>
 		</configuration>
 	  </plugin>
     </plugins>
