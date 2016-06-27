@@ -9,7 +9,7 @@
 	<includeBaseDirectory>false</includeBaseDirectory>
 	<fileSets>
 		<fileSet>
-			<directory>output/</directory>
+			<directory>server/</directory>
 		</fileSet>
 	</fileSets>
 </assembly>
