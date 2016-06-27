@@ -3,7 +3,7 @@
   <groupId>CatalogMonitor</groupId>
   <artifactId>CatalogMonitor</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
+  <packaging>zip</packaging>
   	<dependencies>
 		<dependency> 
 			<groupId>com.ibm.nosql</groupId>
