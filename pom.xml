@@ -112,7 +112,7 @@
         <version>2.6</version>
         <configuration>
           <warSourceDirectory>WebContent</warSourceDirectory>
-          <outputDirectory>apps</outputDirectory>
+          <outputDirectory>target/apps</outputDirectory>
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
