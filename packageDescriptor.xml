@@ -9,10 +9,11 @@
 	<includeBaseDirectory>false</includeBaseDirectory>
 	<fileSets>
 		<fileSet>
-			<directory>server/apps</directory>
+			<useDefaultExcludes>false</useDefaultExcludes>
 			<includes>
 				<include>server/server.xml</include>
 			</includes>
+			<directory>server/apps</directory>
 		</fileSet>
 	</fileSets>
 </assembly>
