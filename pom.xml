@@ -111,6 +111,7 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>2.6</version>
         <configuration>
+          <warName>CatalogMonitor</warName>
           <warSourceDirectory>WebContent</warSourceDirectory>
           <outputDirectory>server/apps</outputDirectory>
           <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -120,6 +121,7 @@
 		<artifactId>maven-assembly-plugin</artifactId>
 		<version>2.5.3</version>
 		<configuration>
+			<finalName>CatalogMonitor</finalName>
 			<descriptors>
 				<descriptor>packageDescriptor.xml</descriptor>
 			</descriptors>
