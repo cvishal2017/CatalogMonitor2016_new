@@ -13,7 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:*/applicationContext.xml" , "classpath:*/monitor-servlet.xml"})
+@ContextConfiguration(locations = { "classpath:*/applicationContext.xml" , "classpath:*/monitor-servlet.xml", "classpath:*/beans.xml"})
 public class ApplicationTest {
 	
 	@Autowired
