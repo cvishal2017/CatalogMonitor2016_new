@@ -13,5 +13,8 @@
    <!-- Definition for textEditor bean without constructor-arg  -->
    <bean id="scheduler" class="com.ibm.bluemix.catalogm.Scheduler">
    </bean>
+   
+   <bean id="schedulerTest" class="com.ibm.bluemix.catalogm.ApplicationTest">
+   </bean>
 
 </beans>
