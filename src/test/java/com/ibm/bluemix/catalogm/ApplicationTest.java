@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = { "classpath:*/applicationContext.xml" , "classpath:*/monitor-servlet.xml"})
 public class ApplicationTest {
 	
+	@Autowired
 	private Scheduler scheduler;
 	
 	@Before
