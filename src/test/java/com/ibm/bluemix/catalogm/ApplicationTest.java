@@ -31,7 +31,7 @@ public class ApplicationTest {
 		
 		System.out.println("Junit : Invoke Scheduler...");
 		scheduler = Mockito.mock(Scheduler.class);
-		scheduler.printSomething();
+		scheduler.catalogCheck();
 		verify(scheduler, atLeast(1)).catalogCheck();
 		System.out.println("Junit : Invokation verified...");
 	}
