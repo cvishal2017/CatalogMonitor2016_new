@@ -9,6 +9,7 @@ import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.atLeast;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -29,6 +30,7 @@ public class ApplicationTest {
 	public void invokeScheduler() {
 		
 		System.out.println("Junit : Invoke Scheduler...");
+		scheduler = Mockito.mock(Scheduler.class);
 		verify(scheduler, atLeast(1)).catalogCheck();
 		System.out.println("Junit : Invokation verified...");
 	}
