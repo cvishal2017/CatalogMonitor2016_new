@@ -8,6 +8,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.atLeast;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -16,12 +17,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = { "classpath:*/applicationContext.xml" , "classpath:*/monitor-servlet.xml", "classpath:*/beans.xml"})
 public class ApplicationTest {
 	
+	@Mock
 	private Scheduler scheduler;
 	
 	@Before
 	public void setup() {
 		System.out.println("Doing Setup...");
-		scheduler = new Scheduler();
 	}
 	
 	@Test
