@@ -36,5 +36,14 @@ public class ApplicationTest {
 		System.out.println("Junit : Invokation verified...");
 	}
 	
+	@Test
+	public void testMethodOne(){
+	    Assert.assertTrue(true);
+	}
+		  
+	@Test
+	public void testMethodTwo(){
+		Assert.assertTrue(false);
+	}
 	
 }
