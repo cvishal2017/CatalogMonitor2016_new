@@ -143,12 +143,13 @@ public class Scheduler {
 		int servicesCount = 0;
 		int startPoint = 0;
 		while (response.indexOf(__start,startPoint) > 0) {
+			System.out.println("Current Response : " + response);
 			startPoint = response.indexOf(__start);
 			response = response.substring(startPoint);
 			int endPoint = response.indexOf(__end);
 			String __serviceData = response.substring(0, endPoint);
 			response = response.substring(endPoint);
-			System.out.println("Current Response : " + response);
+			System.out.println("Current Service Data : " + __serviceData);
 			servicesCount++;
 			//System.out.println(" ******** "+__serviceData);
 			//ServiceData myservice = new ServiceData(__serviceData);
