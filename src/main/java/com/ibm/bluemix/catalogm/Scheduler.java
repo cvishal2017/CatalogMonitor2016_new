@@ -148,6 +148,7 @@ public class Scheduler {
 			int endPoint = response.indexOf(__end);
 			String __serviceData = response.substring(0, endPoint);
 			response = response.substring(endPoint);
+			System.out.println("Current Response : " + response);
 			servicesCount++;
 			//System.out.println(" ******** "+__serviceData);
 			//ServiceData myservice = new ServiceData(__serviceData);
