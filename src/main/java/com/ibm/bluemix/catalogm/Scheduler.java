@@ -153,7 +153,8 @@ public class Scheduler {
 			//ServiceData myservice = new ServiceData(__serviceData);
 			ServiceData myservice = new ServiceData(__serviceData,__isExperimental);
 			BluemixCatalog earlierData = myservice.fetchEarlierDataFromDB(); //		 //@@ REMOVAL HERE inside fetchEarlierDataFromDB()
-			String currentServiceName = myservice.getSeviceName();				
+			String currentServiceName = myservice.getSeviceName();			
+			System.out.println("Current Service Name : " + currentServiceName);
 			if(earlierData!=null){				
 				boolean dbUpdateNeeded = false;
 				//Check if data is same or changed.
