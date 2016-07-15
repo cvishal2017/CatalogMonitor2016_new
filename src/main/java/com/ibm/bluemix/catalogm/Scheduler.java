@@ -144,23 +144,18 @@ public class Scheduler {
 		int startPoint = 0;
 		while (response.indexOf(__start,startPoint) > 0) {
 			
-			System.out.println("Current Response : " + response);
 			startPoint = response.indexOf(__start);
-			System.out.println("Current startPoint : " + startPoint);
 			response = response.substring(startPoint);
 			startPoint = 0;
 			int endPoint = response.indexOf(__end);
 			String __serviceData = response.substring(0, endPoint);
 			response = response.substring(endPoint);
-			System.out.println("Current Service Data : " + __serviceData);
 			servicesCount++;
 			//System.out.println(" ******** "+__serviceData);
 			//ServiceData myservice = new ServiceData(__serviceData);
 			ServiceData myservice = new ServiceData(__serviceData,__isExperimental);
 			BluemixCatalog earlierData = myservice.fetchEarlierDataFromDB(); //		 //@@ REMOVAL HERE inside fetchEarlierDataFromDB()
 			String currentServiceName = myservice.getSeviceName();			
-			System.out.println("Current Service Name : " + currentServiceName);
-			System.out.println("Remaining Response : " + response);
 			if(earlierData!=null){				
 				boolean dbUpdateNeeded = false;
 				//Check if data is same or changed.
