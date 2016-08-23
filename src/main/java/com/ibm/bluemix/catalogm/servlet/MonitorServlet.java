@@ -2,6 +2,7 @@ package com.ibm.bluemix.catalogm.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,10 @@ public class MonitorServlet extends HttpServlet {
 		System.out.println("SP: Inside MonitorServlet.doGet");
 		String user = req.getUserPrincipal().getName();
 		System.out.println("Authenticated User : " + user);
+		String remuser = req.getRemoteUser();
+		System.out.println("Authenticated User : " + remuser);
+		RequestDispatcher reqDisp =  req.getRequestDispatcher("/index.html");
+		reqDisp.forward(req, resp);
 		
 	}
 
@@ -25,6 +30,8 @@ public class MonitorServlet extends HttpServlet {
 		System.out.println("SP: Inside MonitorServlet.doPost");
 		String user = req.getUserPrincipal().getName();
 		System.out.println("Authenticated User : " + user);
+		String remuser = req.getRemoteUser();
+		System.out.println("Authenticated User : " + remuser);
 		super.doPost(req, resp);
 	}
 
