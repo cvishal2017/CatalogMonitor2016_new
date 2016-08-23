@@ -1,6 +1,7 @@
 package com.ibm.bluemix.catalogm.servlet;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,6 +20,17 @@ public class MonitorServlet extends HttpServlet {
 		String remuser = req.getRemoteUser();
 		System.out.println("Authenticated User : " + remuser);
 		
+		Enumeration params = req.getParameterNames();
+		while(params.hasMoreElements()){
+			 String paramName = (String)params.nextElement();
+			 System.out.println("Parameter Name - "+paramName+", Value - "+req.getParameter(paramName));
+		}
+		
+		Enumeration attrs = req.getAttributeNames();
+		while(attrs.hasMoreElements()){
+			 String paramName = (String)attrs.nextElement();
+			 System.out.println("Attribute Name - "+paramName+", Value - "+req.getAttribute(paramName));
+		}
 		
 	}
 
