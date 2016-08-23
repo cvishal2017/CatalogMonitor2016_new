@@ -22,7 +22,7 @@
  
  <servlet>
   <servlet-name>monitor</servlet-name>
-  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  <servlet-class>com.ibm.bluemix.catalogm.servlet.MonitorServlet</servlet-class>
   <load-on-startup>1</load-on-startup>
  </servlet>
  <session-config>
