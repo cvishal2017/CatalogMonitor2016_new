@@ -18,8 +18,7 @@ public class MonitorServlet extends HttpServlet {
 		System.out.println("Authenticated User : " + user);
 		String remuser = req.getRemoteUser();
 		System.out.println("Authenticated User : " + remuser);
-		RequestDispatcher reqDisp =  req.getRequestDispatcher("/index.html");
-		reqDisp.forward(req, resp);
+		
 		
 	}
 
