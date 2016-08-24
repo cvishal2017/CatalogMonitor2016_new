@@ -37,11 +37,9 @@ public class MonitorServlet extends HttpServlet {
 		System.out.println("SP: Inside MonitorServlet.doPost");
 		String user = req.getUserPrincipal().getName();
 		System.out.println("Authenticated User : " + user);
-		String remuser = req.getRemoteUser();
-		System.out.println("Authenticated User : " + remuser);
-		
+				
 		user = user.split(callback_url)[1];
-		System.out.println("Authenticated User : " + user);
+		System.out.println("Logged in User : " + user);
 		
 		String button = req.getParameter("button");
 		System.out.println("Button : " + button);
@@ -50,7 +48,7 @@ public class MonitorServlet extends HttpServlet {
 		EmailSubscriptionsDao emailsub = new EmailSubscriptionsDao();
 		
 		if(button.equalsIgnoreCase(subButton))
-			msg = emailsub.addSubscription(remuser);
+			msg = emailsub.addSubscription(user);
 		else if(button.equalsIgnoreCase(unsubButton))
 			msg = emailsub.removeSubscription(user);
 		
