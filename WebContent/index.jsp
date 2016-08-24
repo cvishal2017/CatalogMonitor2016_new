@@ -81,8 +81,8 @@
 	
 	<div class="container">
 		<form method="post" action="/monitorservlet">
-		  <input type="submit" class="btn btn-info" value="Subscribe">
-		  <input type="submit" class="btn btn-info" value="Unsubscribe">
+		  <input type="submit" class="btn btn-info" name="button" value="Subscribe">
+		  <input type="submit" class="btn btn-info" name="button" value="Unsubscribe">
 	  	</form>
 	</div>
 
