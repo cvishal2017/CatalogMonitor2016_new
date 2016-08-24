@@ -29,17 +29,17 @@
   <session-timeout>20</session-timeout>
  </session-config>
  <welcome-file-list>
-  <welcome-file>index.html</welcome-file>
+  <welcome-file>index.jsp</welcome-file>
  </welcome-file-list>
  
- <servlet>
+ <!-- <servlet>
     <servlet-name>MonitorServlet</servlet-name>
     <servlet-class>com.ibm.bluemix.catalogm.servlet.MonitorServlet</servlet-class>
  </servlet>
 
  <servlet-mapping>
     <servlet-name>MonitorServlet</servlet-name>
-    <url-pattern>index.html</url-pattern>
- </servlet-mapping>
+    <url-pattern>/</url-pattern>
+ </servlet-mapping> -->
  
 </web-app>

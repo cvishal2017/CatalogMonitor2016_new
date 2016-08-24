@@ -38,4 +38,40 @@ public class EmailSubscriptionsDao {
 		return emailIds;
 	}
 	
+	public String addSubscription(String emailId) {
+		String result = "";
+		
+		boolean ifSubscribed = checkIfSubscribed(emailId);
+		if(ifSubscribed)
+			result = "You have already subscribed to Bluemix Monitor Service.";
+		else {
+			try {
+				preparedStatement = (PreparedStatement) connection.prepareStatement("insert into " + tableName + " (`name`, `email_id`) VALUES ('" + emailId + "','" + emailId + "'");
+				preparedStatement.executeUpdate();
+				result = "You have been subscribed to Bluemix Monitor service.";
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
+	
+	public boolean checkIfSubscribed(String emailId) {
+		boolean result = false;
+		
+		try {
+			preparedStatement = (PreparedStatement) connection.prepareStatement("SELECT email_id from " + tableName + "where email_id='" + emailId + "'");
+			ResultSet rs = (ResultSet) preparedStatement.executeQuery();
+			while (rs.next()) {
+				result = true;
+				System.out.println("getSubscribedEmails : Found Email ID : " + emailId);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
 }

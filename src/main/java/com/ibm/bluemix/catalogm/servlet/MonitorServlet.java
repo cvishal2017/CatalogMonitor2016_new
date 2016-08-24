@@ -5,10 +5,12 @@ import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@WebServlet("/monitorservlet")
 public class MonitorServlet extends HttpServlet {
 	
 	@Override
@@ -19,18 +21,6 @@ public class MonitorServlet extends HttpServlet {
 		System.out.println("Authenticated User : " + user);
 		String remuser = req.getRemoteUser();
 		System.out.println("Authenticated User : " + remuser);
-		
-		Enumeration params = req.getParameterNames();
-		while(params.hasMoreElements()){
-			 String paramName = (String)params.nextElement();
-			 System.out.println("Parameter Name - "+paramName+", Value - "+req.getParameter(paramName));
-		}
-		
-		Enumeration attrs = req.getAttributeNames();
-		while(attrs.hasMoreElements()){
-			 String paramName = (String)attrs.nextElement();
-			 System.out.println("Attribute Name - "+paramName+", Value - "+req.getAttribute(paramName));
-		}
 		
 	}
 
@@ -43,6 +33,9 @@ public class MonitorServlet extends HttpServlet {
 		System.out.println("Authenticated User : " + user);
 		String remuser = req.getRemoteUser();
 		System.out.println("Authenticated User : " + remuser);
+		
+		String button = req.getParameter("button");
+		System.out.println("Button : " + button);
 		super.doPost(req, resp);
 	}
 
