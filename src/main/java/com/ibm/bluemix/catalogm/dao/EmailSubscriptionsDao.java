@@ -23,7 +23,9 @@ public class EmailSubscriptionsDao {
 		List<String> emailIds = new ArrayList<String>();
 		
 		try {
-			preparedStatement = (PreparedStatement) connection.prepareStatement("SELECT email_id from " + tableName);
+			String query = "SELECT email_id from " + tableName;
+			System.out.println("getSubscribedEmails : " + query);
+			preparedStatement = (PreparedStatement) connection.prepareStatement(query);
 			ResultSet rs = (ResultSet) preparedStatement.executeQuery();
 			while (rs.next()) {
 				String email_id = rs.getString("email_id");
@@ -46,7 +48,9 @@ public class EmailSubscriptionsDao {
 			result = "You have already subscribed to the Bluemix Monitor Service.";
 		else {
 			try {
-				preparedStatement = (PreparedStatement) connection.prepareStatement("insert into " + tableName + " (`name`, `email_id`) VALUES ('" + emailId + "','" + emailId + "'");
+				String query = "insert into " + tableName + " (`name`, `email_id`) VALUES ('" + emailId + "','" + emailId + "'";
+				System.out.println("addSubscription : " + query);
+				preparedStatement = (PreparedStatement) connection.prepareStatement(query);
 				preparedStatement.executeUpdate();
 				result = "You have been subscribed to the Bluemix Monitor service.";
 			} catch (SQLException e) {
@@ -65,7 +69,9 @@ public class EmailSubscriptionsDao {
 			result = "You have not subscribed to the Bluemix Monitor Service.";
 		else {
 			try {
-				preparedStatement = (PreparedStatement) connection.prepareStatement("delete from " + tableName + " where email_id='" + emailId + "'");
+				String query = "delete from " + tableName + " where email_id='" + emailId + "'";
+				System.out.println("removeSubscription : " + query);
+				preparedStatement = (PreparedStatement) connection.prepareStatement(query);
 				preparedStatement.executeUpdate();
 				result = "You have been unsubscribed to then Bluemix Monitor service.";
 			} catch (SQLException e) {
@@ -80,7 +86,9 @@ public class EmailSubscriptionsDao {
 		boolean result = false;
 		
 		try {
-			preparedStatement = (PreparedStatement) connection.prepareStatement("SELECT email_id from " + tableName + "where email_id='" + emailId + "'");
+			String query = "SELECT email_id from " + tableName + " where email_id='" + emailId + "'";
+			System.out.println("checkIfSubscribed : " + query);
+			preparedStatement = (PreparedStatement) connection.prepareStatement(query);
 			ResultSet rs = (ResultSet) preparedStatement.executeQuery();
 			while (rs.next()) {
 				result = true;
