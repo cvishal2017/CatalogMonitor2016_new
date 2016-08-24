@@ -48,7 +48,7 @@ public class EmailSubscriptionsDao {
 			result = "You have already subscribed to the Bluemix Monitor Service.";
 		else {
 			try {
-				String query = "insert into " + tableName + " (`name`, `email_id`) VALUES ('" + emailId + "','" + emailId + "'";
+				String query = "insert into " + tableName + " (`name`, `email_id`) VALUES ('" + emailId + "','" + emailId + "')";
 				System.out.println("addSubscription : " + query);
 				preparedStatement = (PreparedStatement) connection.prepareStatement(query);
 				preparedStatement.executeUpdate();
