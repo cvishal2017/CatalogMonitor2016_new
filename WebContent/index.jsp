@@ -81,6 +81,7 @@
 	
 	<div class="container">
 		<form method="post" action="/monitorservlet">
+		  <div style="color: #FF0000;">${message}</div>
 		  <input type="submit" class="btn btn-info" name="button" value="Subscribe">
 		  <input type="submit" class="btn btn-info" name="button" value="Unsubscribe">
 	  	</form>

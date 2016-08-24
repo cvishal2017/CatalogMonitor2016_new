@@ -10,8 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ibm.bluemix.catalogm.dao.EmailSubscriptionsDao;
+
 @WebServlet("/monitorservlet")
 public class MonitorServlet extends HttpServlet {
+	
+	final String subButton = "Sunscribe";
+	final String unsubButton = "Unsubscribe";
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,7 +41,17 @@ public class MonitorServlet extends HttpServlet {
 		
 		String button = req.getParameter("button");
 		System.out.println("Button : " + button);
-		super.doPost(req, resp);
+		String msg = "";
+		
+		EmailSubscriptionsDao emailsub = new EmailSubscriptionsDao();
+		
+		if(button.equalsIgnoreCase(subButton))
+			msg = emailsub.addSubscription(remuser);
+		else if(button.equalsIgnoreCase(unsubButton))
+			msg = emailsub.removeSubscription(user);
+		
+		req.setAttribute("message", msg);
+		req.getRequestDispatcher("/index.jsp").forward(req, resp);
 	}
 
 }

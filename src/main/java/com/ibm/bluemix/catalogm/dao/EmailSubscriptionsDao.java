@@ -43,12 +43,31 @@ public class EmailSubscriptionsDao {
 		
 		boolean ifSubscribed = checkIfSubscribed(emailId);
 		if(ifSubscribed)
-			result = "You have already subscribed to Bluemix Monitor Service.";
+			result = "You have already subscribed to the Bluemix Monitor Service.";
 		else {
 			try {
 				preparedStatement = (PreparedStatement) connection.prepareStatement("insert into " + tableName + " (`name`, `email_id`) VALUES ('" + emailId + "','" + emailId + "'");
 				preparedStatement.executeUpdate();
-				result = "You have been subscribed to Bluemix Monitor service.";
+				result = "You have been subscribed to the Bluemix Monitor service.";
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
+	
+	public String removeSubscription(String emailId) {
+		String result = "";
+		
+		boolean ifSubscribed = checkIfSubscribed(emailId);
+		if(!ifSubscribed)
+			result = "You have not subscribed to the Bluemix Monitor Service.";
+		else {
+			try {
+				preparedStatement = (PreparedStatement) connection.prepareStatement("delete from " + tableName + " where email_id='" + emailId + "'");
+				preparedStatement.executeUpdate();
+				result = "You have been unsubscribed to then Bluemix Monitor service.";
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -65,7 +84,7 @@ public class EmailSubscriptionsDao {
 			ResultSet rs = (ResultSet) preparedStatement.executeQuery();
 			while (rs.next()) {
 				result = true;
-				System.out.println("getSubscribedEmails : Found Email ID : " + emailId);
+				System.out.println("checkIfSubscribed : Found Email ID : " + emailId);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
