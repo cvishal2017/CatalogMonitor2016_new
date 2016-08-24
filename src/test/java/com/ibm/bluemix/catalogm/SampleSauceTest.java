@@ -78,7 +78,7 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
         driver.get(appurl);
 	    System.out.println("title of page is: " + driver.getTitle());
 	    
-	    assertEquals("Verify Page title", "Bluemix Catalog Monitor", driver.getTitle());
+	    assertEquals("Verify Page title", "IBM Bluemix - Next-Generation Cloud App Development Platform", driver.getTitle());
 
     }
     
