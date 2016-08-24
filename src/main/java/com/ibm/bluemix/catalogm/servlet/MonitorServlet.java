@@ -15,8 +15,9 @@ import com.ibm.bluemix.catalogm.dao.EmailSubscriptionsDao;
 @WebServlet("/monitorservlet")
 public class MonitorServlet extends HttpServlet {
 	
-	final String subButton = "Sunscribe";
+	final String subButton = "Subscribe";
 	final String unsubButton = "Unsubscribe";
+	final String callback_url = "w3sso-driwbcjm4n-co15.iam.ibmcloud.com/https://w3id.alpha.sso.ibm.com/auth/sps/samlidp/saml20/";
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -38,6 +39,9 @@ public class MonitorServlet extends HttpServlet {
 		System.out.println("Authenticated User : " + user);
 		String remuser = req.getRemoteUser();
 		System.out.println("Authenticated User : " + remuser);
+		
+		user = user.split(callback_url)[1];
+		System.out.println("Authenticated User : " + user);
 		
 		String button = req.getParameter("button");
 		System.out.println("Button : " + button);
