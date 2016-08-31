@@ -77,6 +77,7 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
         
                 
         driver.get(appurl);
+        Thread.sleep(30000);
         for (int i = 0 ; i < 10000 ; i++) {
         	
         }
