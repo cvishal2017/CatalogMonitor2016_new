@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ibm.bluemix.catalogm.dao.EmailSubscriptionsDao;
+import com.ibm.bluemix.catalogm.util.DbUtil;
 
 @WebServlet("/monitorservlet")
 public class MonitorServlet extends HttpServlet {
@@ -51,6 +52,8 @@ public class MonitorServlet extends HttpServlet {
 			msg = emailsub.addSubscription(user);
 		else if(button.equalsIgnoreCase(unsubButton))
 			msg = emailsub.removeSubscription(user);
+		
+		DbUtil.closeConnection();
 		
 		req.setAttribute("message", msg);
 		req.getRequestDispatcher("/index.jsp").forward(req, resp);
