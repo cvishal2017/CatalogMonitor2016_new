@@ -77,12 +77,16 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
         
                 
         driver.get(appurl);
-        Thread.sleep(60000);
+        
+	    System.out.println("title of page is: " + driver.getTitle());
+	    
+	    Thread.sleep(120000);
         for (int i = 0 ; i < 10000 ; i++) {
         	
         }
-	    System.out.println("title of page is: " + driver.getTitle());
 	    
+        System.out.println("title of page is: " + driver.getTitle());
+        
 	    assertEquals("Verify Page title", "IBM w3id", driver.getTitle());
 
     }
