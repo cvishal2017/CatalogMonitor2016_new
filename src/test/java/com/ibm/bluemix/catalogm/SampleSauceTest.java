@@ -75,11 +75,11 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
         String message = String.format("SauceOnDemandSessionID=%1$s job-name=%2$s", this.sessionId, "verifyBrowserTitle");
         System.out.println(message);
         
-        for (int i = 0 ; i < 1000 ; i++) {
+                
+        driver.get(appurl);
+        for (int i = 0 ; i < 10000 ; i++) {
         	
         }
-        
-        driver.get(appurl);
 	    System.out.println("title of page is: " + driver.getTitle());
 	    
 	    assertEquals("Verify Page title", "IBM w3id", driver.getTitle());
