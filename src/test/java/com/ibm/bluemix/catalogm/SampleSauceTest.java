@@ -80,7 +80,7 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
         
 	    System.out.println("title of page is: " + driver.getTitle());
 	    
-	    Thread.sleep(120000);
+	    Thread.sleep(30000);
         for (int i = 0 ; i < 10000 ; i++) {
         	
         }
