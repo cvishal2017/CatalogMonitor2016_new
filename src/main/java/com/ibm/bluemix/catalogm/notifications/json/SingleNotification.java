@@ -61,7 +61,7 @@ public class SingleNotification {
 		}		
 		
 		try {
-			
+			System.out.println("response1 : " + response1);
 			list = objectMapper.readValue(response1, new TypeReference<List<OneNotification>>() { });
 			for(OneNotification notification : list)
 			{
