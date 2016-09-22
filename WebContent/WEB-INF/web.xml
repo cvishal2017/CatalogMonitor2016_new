@@ -29,6 +29,10 @@
   <session-timeout>20</session-timeout>
  </session-config>
  
+ <servlet>
+  <servlet-name>indexServlet</servlet-name>
+  <servlet-class>com.ibm.bluemix.catalogm.servlet.IndexServlet</servlet-class>
+ </servlet>
  <servlet-mapping>
     <servlet-name>indexServlet</servlet-name>
     <url-pattern>/index</url-pattern>

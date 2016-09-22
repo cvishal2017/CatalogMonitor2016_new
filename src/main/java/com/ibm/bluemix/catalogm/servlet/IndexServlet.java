@@ -19,7 +19,7 @@ public class IndexServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("SP: Inside MonitorServlet.doGet");
+		System.out.println("SP: Inside IndexServlet.doGet");
 		String user = req.getUserPrincipal().getName();
 		System.out.println("Authenticated User : " + user);
 		String remuser = req.getRemoteUser();
@@ -31,7 +31,7 @@ public class IndexServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		System.out.println("SP: Inside MonitorServlet.doPost");
+		System.out.println("SP: Inside IndexServlet.doPost");
 		String user = req.getUserPrincipal().getName();
 		System.out.println("Authenticated User : " + user);
 				
