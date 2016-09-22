@@ -51,6 +51,42 @@
       code {
         font-size: 80%;
       }
+      
+    .button1 {
+    background-color: #008080; /* Teal */
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+	}
+
+	.button1:hover {
+    background-color: #00cccc;
+	}
+	
+	.assetbox {
+		 -webkit-transition-duration: 0.4s; /* Safari */
+    	transition-duration: 0.4s;
+    	background: linear-gradient(to right, #008080, #00cccc); 
+	}
+	.assetbox > div > p {
+		font-size:115%;
+		font-weight:bold;
+	}
+	.assetbox:hover {
+		 background: linear-gradient(to left, #008080, #00cccc); 
+	}
+	
+	.assetbox:hover > div > p {
+		 font-size:140%;
+	}
 
     </style>
 </head>
@@ -70,21 +106,59 @@
 			</table>
 		</div>
 	</div>
-	<br><br><br>
-	<br>
-	<div>
-	<p>
-		Welcome to Bluemix Monitor Utility. This utility has been designed to monitor changes happening in Bluemix Catalog, any announcements being done around Bluemix, top viewed Bluemix articles as well as Top Recent Question asked about Bluemix on StackOverflow.
-		You can subscribe to this utility to receive daily updates or unsubscribe if you want to stop receiving updates.
-	</p>
-	</div>
 	
 	<div class="container">
+		
+		<h2 align="center"> Welcome to Bluemix Monitor Utilty</h2>
+		<h5 align="center">A service which sends daily updates around Bluemix</h5>
+		<br/>
+	
+		<div class="container assetbox" style="width:1000px;">
+			<div style="float:left;padding-top:10px;padding-bottom:10px;" >
+		  		<img src="images/IBMBlueMix.jpg" align="left" height="80px" width="300px"> </img>
+		  	</div>
+		  	<div style="height:100px;text-align:center;padding-top:40px;">
+		  		<p  >It reads changes happening to IBM Bluemix Catalog like Boilerplates, Runtimes and Services</p>
+		  	</div>
+		</div>
+		<br/> 
+		<div class="container assetbox" style="width:1000px;">
+			<div style="float:left;padding-top:10px;padding-bottom:10px;" >
+		  		<img src="images/announce.jpg" align="left" height="80px" width="300px"> </img>
+		  	</div>
+		  	<div style="height:100px;text-align:center;padding-top:40px;">
+		  		<p  >It reads announcements made on IBM Bluemix Changes</p>
+		  	</div>
+		</div>
+		<br/>
+		
+		<div class="container assetbox" style="width:1000px;">
+			<div style="float:left;padding-top:10px;padding-bottom:10px;" >
+		  		<img src="images/ibm_dW1.jpg" align="left" height="80px" width="300px"> </img>
+		  	</div>
+		  	<div style="height:100px;text-align:center;padding-top:40px;">
+		  		<p  >Most recent articles published on IBM DeveloperWorks targeted for IBM Bluemix Users</p>
+		  	</div>
+		</div>
+		<br/>
+		
+		<div class="container assetbox" style="width:1000px;">
+			<div style="float:left;padding-top:10px;padding-bottom:10px;" >
+		  		<img src="images/stackoverflow_logo.jpg" align="left" height="80px" width="300px"> </img>
+		  	</div>
+		  	<div style="height:100px;text-align:center;padding-top:40px;">
+		  		<p  >Most recent discussions created on StackOverflow community by IBM Bluemix Users</p>
+		  	</div>
+		</div>		
+	</div>
+	
+		
+	<div class="container" style="margin-top:-20px;">
 		<form method="post" action="/monitorservlet">
 		  <div style="color: #0000FF;">${message}</div>
-		  <br>
-		  <input type="submit" class="btn btn-info" name="button" value="Subscribe">
-		  <input type="submit" class="btn btn-info" name="button" value="Unsubscribe">
+		  
+		  <input type="submit" class="button1" name="button" value="Subscribe">
+		  <input type="submit" class="button1" name="button" value="Unsubscribe">
 	  	</form>
 	</div>
 
