@@ -11,11 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.ibm.bluemix.catalogm.dao.EmailSubscriptionsDao;
 import com.ibm.bluemix.catalogm.util.DbUtil;
 
-@WebServlet("/monitorservlet")
-public class MonitorServlet extends HttpServlet {
+@WebServlet("/indexServlet")
+public class IndexServlet extends HttpServlet {
 	
-	final String subButton = "Subscribe";
-	final String unsubButton = "Unsubscribe";
 	final String callback_url = "w3sso-driwbcjm4n-co15.iam.ibmcloud.com/https://w3id.alpha.sso.ibm.com/auth/sps/samlidp/saml20/";
 	
 	@Override
@@ -46,10 +44,7 @@ public class MonitorServlet extends HttpServlet {
 		
 		EmailSubscriptionsDao emailsub = new EmailSubscriptionsDao();
 		
-		if(button.equalsIgnoreCase(subButton))
-			msg = emailsub.addSubscription(user);
-		else if(button.equalsIgnoreCase(unsubButton))
-			msg = emailsub.removeSubscription(user);
+		
 		
 		DbUtil.closeConnection();
 		
