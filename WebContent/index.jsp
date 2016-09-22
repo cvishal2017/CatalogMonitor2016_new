@@ -75,6 +75,7 @@
 		 -webkit-transition-duration: 0.4s; /* Safari */
     	transition-duration: 0.4s;
     	background: linear-gradient(to right, #008080, #00cccc); 
+    	height:90px;
 	}
 	.assetbox > div > p {
 		font-size:115%;
@@ -114,39 +115,39 @@
 		<br/>
 	
 		<div class="container assetbox" style="width:1000px;">
-			<div style="float:left;padding-top:10px;padding-bottom:10px;" >
-		  		<img src="images/IBMBlueMix.jpg" align="left" height="80px" width="300px"> </img>
+			<div style="float:left;padding-top:8px;padding-bottom:8px;" >
+		  		<img src="images/IBMBlueMix.jpg" align="left" height="75px" width="250px"> </img>
 		  	</div>
-		  	<div style="height:100px;text-align:center;padding-top:40px;">
+		  	<div style="text-align:center;padding-top:40px;">
 		  		<p  >It reads changes happening to IBM Bluemix Catalog like Boilerplates, Runtimes and Services</p>
 		  	</div>
 		</div>
 		<br/> 
 		<div class="container assetbox" style="width:1000px;">
-			<div style="float:left;padding-top:10px;padding-bottom:10px;" >
-		  		<img src="images/announce.jpg" align="left" height="80px" width="300px"> </img>
+			<div style="float:left;padding-top:8px;padding-bottom:8px;" >
+		  		<img src="images/announce.jpg" align="left" height="75px" width="250px"> </img>
 		  	</div>
-		  	<div style="height:100px;text-align:center;padding-top:40px;">
+		  	<div style="text-align:center;padding-top:40px;">
 		  		<p  >It reads announcements made on IBM Bluemix Changes</p>
 		  	</div>
 		</div>
 		<br/>
 		
 		<div class="container assetbox" style="width:1000px;">
-			<div style="float:left;padding-top:10px;padding-bottom:10px;" >
-		  		<img src="images/ibm_dW1.jpg" align="left" height="80px" width="300px"> </img>
+			<div style="float:left;padding-top:8px;padding-bottom:8px;" >
+		  		<img src="images/ibm_dW1.jpg" align="left" height="75px" width="250px"> </img>
 		  	</div>
-		  	<div style="height:100px;text-align:center;padding-top:40px;">
+		  	<div style="text-align:center;padding-top:40px;">
 		  		<p  >Most recent articles published on IBM DeveloperWorks targeted for IBM Bluemix Users</p>
 		  	</div>
 		</div>
 		<br/>
 		
 		<div class="container assetbox" style="width:1000px;">
-			<div style="float:left;padding-top:10px;padding-bottom:10px;" >
-		  		<img src="images/stackoverflow_logo.jpg" align="left" height="80px" width="300px"> </img>
+			<div style="float:left;padding-top:8px;padding-bottom:8px;" >
+		  		<img src="images/stackoverflow_logo.jpg" align="left" height="75px" width="250px"> </img>
 		  	</div>
-		  	<div style="height:100px;text-align:center;padding-top:40px;">
+		  	<div style="text-align:center;padding-top:40px;">
 		  		<p  >Most recent discussions created on StackOverflow community by IBM Bluemix Users</p>
 		  	</div>
 		</div>		
@@ -155,7 +156,7 @@
 		
 	<div class="container" style="margin-top:-20px;">
 		<form method="post" action="/monitorservlet">
-		  <div style="color: #0000FF;">${message}</div>
+		  <div style="color: #000000;">${message}</div>
 		  
 		  <input type="submit" class="button1" name="button" value="Subscribe">
 		  <input type="submit" class="button1" name="button" value="Unsubscribe">
