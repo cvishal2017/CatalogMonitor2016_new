@@ -25,6 +25,19 @@ public class IndexServlet extends HttpServlet {
 		String remuser = req.getRemoteUser();
 		System.out.println("Authenticated User : " + remuser);
 		
+		String button = req.getParameter("button");
+		System.out.println("Button : " + button);
+		String msg = "";
+		
+		EmailSubscriptionsDao emailsub = new EmailSubscriptionsDao();
+		
+		
+		
+		DbUtil.closeConnection();
+		
+		req.setAttribute("message", msg);
+		req.getRequestDispatcher("/index.jsp").forward(req, resp);
+		
 	}
 
 	@Override
