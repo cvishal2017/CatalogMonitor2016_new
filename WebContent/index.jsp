@@ -75,10 +75,11 @@
 		 -webkit-transition-duration: 0.4s; /* Safari */
     	transition-duration: 0.4s;
     	background: linear-gradient(to right, #008080, #00cccc); 
-    	height:90px;
+    	height:80px;
+    	width:900px
 	}
 	.assetbox > div > p {
-		font-size:115%;
+		font-size:110%;
 		font-weight:bold;
 	}
 	.assetbox:hover {
@@ -86,7 +87,7 @@
 	}
 	
 	.assetbox:hover > div > p {
-		 font-size:140%;
+		 font-size:130%;
 	}
 
     </style>
@@ -114,47 +115,47 @@
 		<h5 align="center">A service which sends daily updates around Bluemix</h5>
 		<br/>
 	
-		<div class="container assetbox" style="width:1000px;">
-			<div style="float:left;padding-top:8px;padding-bottom:8px;" >
-		  		<img src="images/IBMBlueMix.jpg" align="left" height="75px" width="250px"> </img>
+		<div class="container assetbox" >
+			<div style="float:left;padding-top:5px;padding-bottom:5px;" >
+		  		<img src="images/IBMBlueMix.jpg" align="left" height="70px" width="250px"> </img>
 		  	</div>
-		  	<div style="text-align:center;padding-top:40px;">
+		  	<div style="text-align:center;padding-top:30px;">
 		  		<p  >It reads changes happening to IBM Bluemix Catalog like Boilerplates, Runtimes and Services</p>
 		  	</div>
 		</div>
 		<br/> 
-		<div class="container assetbox" style="width:1000px;">
-			<div style="float:left;padding-top:8px;padding-bottom:8px;" >
-		  		<img src="images/announce.jpg" align="left" height="75px" width="250px"> </img>
+		<div class="container assetbox" >
+			<div style="float:left;padding-top:5px;padding-bottom:5px;" >
+		  		<img src="images/announce.jpg" align="left" height="70px" width="250px"> </img>
 		  	</div>
-		  	<div style="text-align:center;padding-top:40px;">
+		  	<div style="text-align:center;padding-top:30px;">
 		  		<p  >It reads announcements made on IBM Bluemix Changes</p>
 		  	</div>
 		</div>
 		<br/>
 		
-		<div class="container assetbox" style="width:1000px;">
-			<div style="float:left;padding-top:8px;padding-bottom:8px;" >
-		  		<img src="images/ibm_dW1.jpg" align="left" height="75px" width="250px"> </img>
+		<div class="container assetbox" >
+			<div style="float:left;padding-top:5px;padding-bottom:5px;" >
+		  		<img src="images/ibm_dW1.jpg" align="left" height="70px" width="250px"> </img>
 		  	</div>
-		  	<div style="text-align:center;padding-top:40px;">
+		  	<div style="text-align:center;padding-top:30px;">
 		  		<p  >Most recent articles published on IBM DeveloperWorks targeted for IBM Bluemix Users</p>
 		  	</div>
 		</div>
 		<br/>
 		
-		<div class="container assetbox" style="width:1000px;">
-			<div style="float:left;padding-top:8px;padding-bottom:8px;" >
-		  		<img src="images/stackoverflow_logo.jpg" align="left" height="75px" width="250px"> </img>
+		<div class="container assetbox" >
+			<div style="float:left;padding-top:5px;padding-bottom:5px;" >
+		  		<img src="images/stackoverflow_logo.jpg" align="left" height="70px" width="250px"> </img>
 		  	</div>
-		  	<div style="text-align:center;padding-top:40px;">
+		  	<div style="text-align:center;padding-top:30px;">
 		  		<p  >Most recent discussions created on StackOverflow community by IBM Bluemix Users</p>
 		  	</div>
 		</div>		
 	</div>
 	
 		
-	<div class="container" style="margin-top:-20px;">
+	<div class="container" style="margin-top:-20px;padding-left:130px">
 		<form method="post" action="/monitorservlet">
 		  <div style="color: #000000;">${message}</div>
 		  
