@@ -36,7 +36,7 @@ public class IndexServlet extends HttpServlet {
 		DbUtil.closeConnection();
 		
 		req.setAttribute("message", msg);
-		req.getRequestDispatcher("/index.jsp").forward(req, resp);
+		req.getRequestDispatcher("/main.jsp").forward(req, resp);
 		
 	}
 
