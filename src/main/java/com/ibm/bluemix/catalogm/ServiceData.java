@@ -86,7 +86,7 @@ public class ServiceData {
 	}
 
 	private void setServiceData(String __serviceData) {
-		String endText = "</span>";
+		String endText = "</p>";
 		String beginTextServiceName = "<p class=\"text__headline--catalog\">";
 		String _tmpString = __serviceData.substring(__serviceData.indexOf(beginTextServiceName));
 		// Part 1
@@ -101,6 +101,7 @@ public class ServiceData {
 		// Part 2
 		// <span class="category">Data &amp; Analytics</span>
 		String beginTextCatName = "<span class=\"category\">";
+		endText = "</span>";
 		_tmpString = __serviceData.substring(__serviceData.indexOf(beginTextCatName));
 		i = beginTextCatName.length();
 		j = _tmpString.indexOf(endText);
@@ -113,6 +114,7 @@ public class ServiceData {
 		// <span class="tile-provider-name">IBM</span><span
 		// class="tile-stage-name">Beta</span>
 		String beginTextProName = "<div class=\"provider-tag\">";
+		endText = "</div>";
 		_tmpString = __serviceData.substring(__serviceData.indexOf(beginTextProName));
 		i = beginTextProName.length();
 		j = _tmpString.indexOf(endText);
@@ -140,6 +142,7 @@ public class ServiceData {
 
 		// Part 5
 		String beginTextDescName = "span class=\"long-description\">";
+		endText = "</span>";
 		int startAlt = __serviceData.indexOf(beginTextDescName);
 		System.out.println("Start ALT is "+startAlt);
 		System.out.println("ServiceData"+ __serviceData);
