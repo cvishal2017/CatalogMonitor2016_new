@@ -87,7 +87,7 @@ public class ServiceData {
 
 	private void setServiceData(String __serviceData) {
 		String endText = "</span>";
-		String beginTextServiceName = "<span class=\"tile-name\">";
+		String beginTextServiceName = "<p class=\"text__headline--catalog\">";
 		String _tmpString = __serviceData.substring(__serviceData.indexOf(beginTextServiceName));
 		// Part 1
 		// Sample <span class="tile-name">Apache Spark</span>
