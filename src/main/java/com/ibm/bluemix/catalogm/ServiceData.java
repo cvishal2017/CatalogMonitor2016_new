@@ -145,7 +145,7 @@ public class ServiceData {
 		//System.out.println("ServiceData"+ __serviceData);
 		_tmpString = __serviceData.substring(startAlt);
 		i = beginTextDescName.length();
-		j = _tmpString.indexOf("onerror=");
+		j = _tmpString.indexOf("</span>");
 		if (i > 0) {
 			desc = _tmpString.substring(i, j);
 			setDesc(desc);
