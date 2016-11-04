@@ -140,7 +140,7 @@ public class ServiceData {
 		}*/
 		
 
-		// Part 5
+		/*// Part 5
 		String beginTextDescName = "span class=\"long-description\">";
 		endText = "</span>";
 		int startAlt = __serviceData.indexOf(beginTextDescName);
@@ -149,6 +149,19 @@ public class ServiceData {
 		_tmpString = __serviceData.substring(startAlt);
 		i = beginTextDescName.length();
 		j = _tmpString.indexOf("</span>");
+		if (i > 0) {
+			desc = _tmpString.substring(i, j);
+			setDesc(desc);
+		}*/
+		
+		// Part 5
+		String beginTextDescName = "alt=";
+		int startAlt = __serviceData.indexOf(beginTextDescName);
+		System.out.println("Start ALT is "+startAlt);
+		System.out.println("ServiceData"+ __serviceData);
+		_tmpString = __serviceData.substring(startAlt);
+		i = beginTextDescName.length();
+		j = _tmpString.indexOf("onerror=");
 		if (i > 0) {
 			desc = _tmpString.substring(i, j);
 			setDesc(desc);
