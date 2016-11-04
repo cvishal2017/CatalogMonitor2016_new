@@ -30,7 +30,8 @@ public class BluemixCatalogDao {
 	            preparedStatement.setString(2, catalog.getCatagory());
 	            preparedStatement.setString(3, catalog.getVendor());
 	            preparedStatement.setString(4, catalog.getDesc());
-	            preparedStatement.setString(5, catalog.getStage());
+	            //preparedStatement.setString(5, catalog.getStage());
+	            preparedStatement.setString(5, "");
 	            preparedStatement.setString(6, "TRUE");
 	            preparedStatement.executeUpdate();
 	            System.out.println("&&&&&&&&&&&&&&& DB New Record Inserted..... for "+catalog.getSeviceName());
