@@ -96,6 +96,7 @@ public class BluemixCatalogDao {
 	        finally {
 		        if (preparedStatement != null) {
 		        	try {
+		        		connection.commit();
 						preparedStatement.close();
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
