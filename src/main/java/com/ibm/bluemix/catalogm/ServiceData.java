@@ -128,18 +128,14 @@ public class ServiceData {
 		String beginTextStageName = "<div class=\"stage-tag\">";
 		endText = "</div>";
 		int stageIndex = __serviceData.indexOf(beginTextStageName);
-		System.out.println("Tag Index : " + stageIndex);
 		if(stageIndex<0){
 			setStage("GA");
 		}else{
 			_tmpString = __serviceData.substring(stageIndex);
-			System.out.println("Stage text : " + _tmpString);
 			i = beginTextStageName.length();
 			j = _tmpString.indexOf(endText);
-			System.out.println("i, j : " + i + " , " + j);
 			if (i > 0) {
 				stage = _tmpString.substring(i, j);
-				System.out.println("Stage : " + stage);
 				setStage(stage);
 			}
 		}
