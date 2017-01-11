@@ -34,11 +34,10 @@ public class Scheduler {
 	String notificationURL = "https://status.ng.bluemix.net/api/notifications";
 	
 	boolean emailNeeded = false;
-	
-	
+		
 	
 	//@Scheduled(cron="0 0/360 * * * ?")
-	@Scheduled(cron="0 0 10 * * *" )
+	@Scheduled(cron="0 0 13 * * *" )
 	//@Scheduled(fixedRate=43200000)
 	//@Scheduled(fixedRate=86400000)
 	public void catalogCheck(){
