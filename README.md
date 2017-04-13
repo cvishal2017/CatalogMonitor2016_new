@@ -1,3 +1,3 @@
-# CatalogMonitor2016_new
+# CatalogMonitor
 
 Bluemix Monitoring tool
