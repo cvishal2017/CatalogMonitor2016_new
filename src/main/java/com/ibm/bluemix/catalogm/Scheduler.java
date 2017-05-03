@@ -37,7 +37,7 @@ public class Scheduler {
 		
 	
 	//@Scheduled(cron="0 0/360 * * * ?")
-	@Scheduled(cron="0 15 9 * * *" )
+	@Scheduled(cron="0 45 9 * * *" )
 	//@Scheduled(fixedRate=43200000)
 	//@Scheduled(fixedRate=86400000)
 	public void catalogCheck(){
@@ -155,11 +155,15 @@ public class Scheduler {
 			
 			System.out.println("__categoryData : " + __categoryData);
 			
-			String beginTextCatName = "<span class=\"category-name\">";
+			String beginTextCatName = "<span class=\"category-name\"";
 			String endText = "</span>";
 			String _tmpString = __categoryData.substring(__categoryData.indexOf(beginTextCatName));
+			System.out.println("__categoryData : " + __categoryData);
+			
 			int i = beginTextCatName.length();
 			int j = _tmpString.indexOf(endText);
+			System.out.println("i : " + i+"");
+			System.out.println("j : " + j+"");
 			String category = "";
 			if (i > 0) {
 				category = _tmpString.substring(i, j);
