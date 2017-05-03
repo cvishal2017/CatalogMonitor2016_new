@@ -100,7 +100,7 @@ public class ServiceData {
 
 		// Part 2
 		// <span class="category">Data &amp; Analytics</span>
-		String beginTextCatName = "<span class=\"category\">";
+		/*String beginTextCatName = "<span class=\"category\">";
 		endText = "</span>";
 		_tmpString = __serviceData.substring(__serviceData.indexOf(beginTextCatName));
 		i = beginTextCatName.length();
@@ -108,7 +108,7 @@ public class ServiceData {
 		if (i > 0) {
 			catagory = _tmpString.substring(i, j);
 			setCatagory(catagory);
-		}
+		}*/
 
 		// Part 3
 		// <span class="tile-provider-name">IBM</span><span
@@ -142,8 +142,18 @@ public class ServiceData {
 		
 	
 		// Part 5
-		String beginTextDescName = "alt=";
-		int startAlt = __serviceData.indexOf(beginTextDescName);
+		String beginTextDescName = "<p class=\"text__desc--catalog\"";
+		String endDescText = "</p>";
+		
+		String _descString = __serviceData.substring(__serviceData.indexOf(beginTextDescName));
+		i = beginTextDescName.length();
+		j = _descString.indexOf(endDescText);
+		if (i > 0) {
+			desc = _descString.substring(i, j);
+			setDesc(desc);
+		}
+		
+		/*int startAlt = __serviceData.indexOf(beginTextDescName);
 		System.out.println("Start ALT is "+startAlt);
 		//System.out.println("ServiceData"+ __serviceData);
 		_tmpString = __serviceData.substring(startAlt);
@@ -152,7 +162,7 @@ public class ServiceData {
 		if (i > 0) {
 			desc = _tmpString.substring(i, j);
 			setDesc(desc);
-		}
+		}*/
 
 	}
 

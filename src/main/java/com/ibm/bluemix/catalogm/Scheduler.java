@@ -29,7 +29,7 @@ import com.ibm.bluemix.catalogm.util.DbUtil;
 @Service
 public class Scheduler {
 	
-	String __start ="<a unresolved is=";
+	String __start ="<a class=\"tile";
 	String __end ="</a>";
 	String notificationURL = "https://status.ng.bluemix.net/api/notifications";
 	
@@ -141,71 +141,98 @@ public class Scheduler {
         
 		int servicesCount = 0;
 		int startPoint = 0;
-		while (response.indexOf(__start,startPoint) > 0) {
+		
+		String __category_start ="div class=\"category-section";
+		String __category_end = "\\div";
+		
+		while (response.indexOf(__category_start,startPoint) > 0) {
 			
-			startPoint = response.indexOf(__start);
+			startPoint = response.indexOf(__category_start);
 			response = response.substring(startPoint);
 			startPoint = 0;
-			int endPoint = response.indexOf(__end);
-			String __serviceData = response.substring(0, endPoint);
-			response = response.substring(endPoint);
-			servicesCount++;
-			//System.out.println(" ******** "+__serviceData);
-			//ServiceData myservice = new ServiceData(__serviceData);
-			ServiceData myservice = new ServiceData(__serviceData,__isExperimental);
-			BluemixCatalog earlierData = myservice.fetchEarlierDataFromDB(); //		 //@@ REMOVAL HERE inside fetchEarlierDataFromDB()
-			String currentServiceName = myservice.getSeviceName();			
-			if(earlierData!=null){				
-				boolean dbUpdateNeeded = false;
-				//Check if data is same or changed.
-				if(!earlierData.getCatagory().equalsIgnoreCase(myservice.getCatagory())){
-					//As a special case.... if 1 service is part of two catagory, then we take only first and ignore second catagory
-					if(allServiceNames.contains(currentServiceName)){
-						String msg = "Just FYI: We found that "+currentServiceName+ " is part of two catagories. 1."+earlierData.getCatagory()+" & 2."+myservice.getCatagory()+".";
-						//email.appendMessage("<p>"+msg+"</p>");
-						System.out.println(msg);
-						continue;
-					}
-					//Change is catagory name.. Alert
-					email.appendMessage("<p>Change in existing service :"+currentServiceName+"</p><p>Earlier Category : "+earlierData.getCatagory()+"</p><p>New Category : "+myservice.getCatagory()+"</p>");
-					if(!dbUpdateNeeded) dbUpdateNeeded=true;
-				}				
-				if(!earlierData.getStage().equalsIgnoreCase(myservice.getStage())){
-					//Change is Stage name.. Alert
-					email.appendMessage("<p>Change in existing service :"+currentServiceName+"</p><p>Earlier Stage : "+earlierData.getStage()+"</p><p>New Stage : "+myservice.getStage()+"</p>");
-					if(!dbUpdateNeeded) dbUpdateNeeded=true;
-				}
-				if(!earlierData.getDesc().equalsIgnoreCase(myservice.getDesc())){
-					//Change is Description name.. Alert
-					email.appendMessage("<p>Change in existing service :"+currentServiceName+"</p><p>Earlier Description : "+earlierData.getDesc()+"</p><p>New Description : "+myservice.getDesc()+"</p>");
-					if(!dbUpdateNeeded) dbUpdateNeeded=true;
-				}
-				if(!earlierData.getVendor().equalsIgnoreCase(myservice.getVendor())){
-					//Change is Vendor name.. Alert
-					email.appendMessage("<p>Change in existing service :"+currentServiceName+"</p><p>Earlier Vendor : "+earlierData.getVendor()+"</p><p>New Vendor : "+myservice.getVendor()+"</p>");
-					if(!dbUpdateNeeded) dbUpdateNeeded=true;
-				}
-				//At the end .. update the DB instance with new data.. 
-				if(dbUpdateNeeded) {
-					System.out.println("Service : "+earlierData.getSeviceName()+". Data is updated. Please look at the details in Mail.");
-					emailNeeded = true;
-					myservice.updateHistory();
-				}
-			}else{
-				    email.appendMessage(getFormattedMessage(myservice));				    
-				    System.out.println("Service : "+myservice.getSeviceName()+". IS NEW SERVICE..");
-				    if(currentServiceName!=null && currentServiceName.equalsIgnoreCase("")){
-				    	System.out.println("### VISHAL: Looks like Service name is coming as NULL.");
-				    	System.out.println("### VISHAL: Desc is "+myservice.getDesc());
-				    	email.thereIsAnError();
-				    }else{
-				    	emailNeeded = true;
-				    	myservice.addIntoHistory();
-				    }
-					
+			int endPoint = response.indexOf(__category_end);
+			String __categoryData = response.substring(0, endPoint);
+			
+			String beginTextCatName = "<span class=\"category-name\">";
+			String endText = "</span>";
+			String _tmpString = __categoryData.substring(__categoryData.indexOf(beginTextCatName));
+			int i = beginTextCatName.length();
+			int j = _tmpString.indexOf(endText);
+			String category = "";
+			if (i > 0) {
+				category = _tmpString.substring(i, j);
 			}
-			//Service check is complete, lets add in allServicesNames.
-			allServiceNames.add(currentServiceName);
+			
+			while (response.indexOf(__category_start,startPoint) > response.indexOf(__start,startPoint)) {
+				startPoint = response.indexOf(__start);
+				response = response.substring(startPoint);
+				startPoint = 0;
+				endPoint = response.indexOf(__category_end);
+				String __serviceData = response.substring(0, endPoint);
+			
+			
+				response = response.substring(endPoint);
+				servicesCount++;
+				System.out.println(" ******** "+__serviceData);
+				//ServiceData myservice = new ServiceData(__serviceData);
+				ServiceData myservice = new ServiceData(__serviceData,__isExperimental);
+				myservice.setCatagory(category);
+				BluemixCatalog earlierData = myservice.fetchEarlierDataFromDB(); //		 //@@ REMOVAL HERE inside fetchEarlierDataFromDB()
+				String currentServiceName = myservice.getSeviceName();
+			
+				if(earlierData!=null){				
+					boolean dbUpdateNeeded = false;
+					//Check if data is same or changed.
+					if(!earlierData.getCatagory().equalsIgnoreCase(myservice.getCatagory())){
+						//As a special case.... if 1 service is part of two catagory, then we take only first and ignore second catagory
+						if(allServiceNames.contains(currentServiceName)){
+							String msg = "Just FYI: We found that "+currentServiceName+ " is part of two catagories. 1."+earlierData.getCatagory()+" & 2."+myservice.getCatagory()+".";
+							//email.appendMessage("<p>"+msg+"</p>");
+							System.out.println(msg);
+							continue;
+						}
+						//Change is catagory name.. Alert
+						email.appendMessage("<p>Change in existing service :"+currentServiceName+"</p><p>Earlier Category : "+earlierData.getCatagory()+"</p><p>New Category : "+myservice.getCatagory()+"</p>");
+						if(!dbUpdateNeeded) dbUpdateNeeded=true;
+					}				
+					if(!earlierData.getStage().equalsIgnoreCase(myservice.getStage())){
+						//Change is Stage name.. Alert
+						email.appendMessage("<p>Change in existing service :"+currentServiceName+"</p><p>Earlier Stage : "+earlierData.getStage()+"</p><p>New Stage : "+myservice.getStage()+"</p>");
+						if(!dbUpdateNeeded) dbUpdateNeeded=true;
+					}
+					if(!earlierData.getDesc().equalsIgnoreCase(myservice.getDesc())){
+						//Change is Description name.. Alert
+						email.appendMessage("<p>Change in existing service :"+currentServiceName+"</p><p>Earlier Description : "+earlierData.getDesc()+"</p><p>New Description : "+myservice.getDesc()+"</p>");
+						if(!dbUpdateNeeded) dbUpdateNeeded=true;
+					}
+					if(!earlierData.getVendor().equalsIgnoreCase(myservice.getVendor())){
+						//Change is Vendor name.. Alert
+						email.appendMessage("<p>Change in existing service :"+currentServiceName+"</p><p>Earlier Vendor : "+earlierData.getVendor()+"</p><p>New Vendor : "+myservice.getVendor()+"</p>");
+						if(!dbUpdateNeeded) dbUpdateNeeded=true;
+					}
+					//At the end .. update the DB instance with new data.. 
+					if(dbUpdateNeeded) {
+						System.out.println("Service : "+earlierData.getSeviceName()+". Data is updated. Please look at the details in Mail.");
+						emailNeeded = true;
+						myservice.updateHistory();
+					}
+					
+				}else{
+					    email.appendMessage(getFormattedMessage(myservice));				    
+					    System.out.println("Service : "+myservice.getSeviceName()+". IS NEW SERVICE..");
+					    if(currentServiceName!=null && currentServiceName.equalsIgnoreCase("")){
+					    	System.out.println("### VISHAL: Looks like Service name is coming as NULL.");
+					    	System.out.println("### VISHAL: Desc is "+myservice.getDesc());
+					    	email.thereIsAnError();
+					    }else{
+					    	emailNeeded = true;
+					    	myservice.addIntoHistory();
+					    }
+						
+				}
+				//Service check is complete, lets add in allServicesNames.
+				allServiceNames.add(currentServiceName);
+			}
 			
 		}
 		
