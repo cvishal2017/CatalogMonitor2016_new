@@ -37,7 +37,7 @@ public class Scheduler {
 		
 	
 	//@Scheduled(cron="0 0/360 * * * ?")
-	@Scheduled(cron="0 15 14 * * *" )
+	@Scheduled(cron="0 40 17 * * *" )
 	//@Scheduled(fixedRate=43200000)
 	//@Scheduled(fixedRate=86400000)
 	public void catalogCheck(){
@@ -154,6 +154,8 @@ public class Scheduler {
 			String __categoryData = response.substring(0, endPoint);
 			response = response.substring(endPoint);
 			
+			System.out.println("response : " + response);
+			
 			System.out.println("__categoryData : " + __categoryData);
 			
 			String beginTextCatName = "<span class=\"category-name\"";
@@ -179,9 +181,11 @@ public class Scheduler {
 				System.out.println("snehal category : " + category);
 			}
 			
+			startPoint = 0;
 			System.out.println("response.indexOf(__category_start,startPoint) : " + response.indexOf(__category_start,startPoint));
 			System.out.println("response.indexOf(__start,startPoint) : " + response.indexOf(__category_start,startPoint));
 			while (response.indexOf(__category_start,startPoint) > response.indexOf(__start,startPoint)) {
+				System.out.println("Inside second while...");
 				startPoint = response.indexOf(__start);
 				response = response.substring(startPoint);
 				startPoint = 0;
