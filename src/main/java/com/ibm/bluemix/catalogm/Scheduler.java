@@ -37,7 +37,7 @@ public class Scheduler {
 		
 	
 	//@Scheduled(cron="0 0/360 * * * ?")
-	@Scheduled(cron="0 40 11 * * *" )
+	@Scheduled(cron="0 0 13 * * *" )
 	//@Scheduled(fixedRate=43200000)
 	//@Scheduled(fixedRate=86400000)
 	public void catalogCheck(){
@@ -152,6 +152,7 @@ public class Scheduler {
 			startPoint = 0;
 			int endPoint = response.indexOf(__category_end);
 			String __categoryData = response.substring(0, endPoint);
+			response = response.substring(endPoint);
 			
 			System.out.println("__categoryData : " + __categoryData);
 			
