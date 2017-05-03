@@ -37,7 +37,7 @@ public class Scheduler {
 		
 	
 	//@Scheduled(cron="0 0/360 * * * ?")
-	@Scheduled(cron="0 45 10 * * *" )
+	@Scheduled(cron="0 15 11 * * *" )
 	//@Scheduled(fixedRate=43200000)
 	//@Scheduled(fixedRate=86400000)
 	public void catalogCheck(){
@@ -169,10 +169,17 @@ public class Scheduler {
 			if (i > 0) {
 				String tmpcat = _tmpString.substring(i, j);
 				System.out.println("tmpcat : " + tmpcat);
-				category = tmpcat.split(">")[1];
-				System.out.println("category : " + category);
+				String [] arr = tmpcat.split(">");
+				System.out.println("arr.length : " + arr.length);
+				if (arr.length > 0)
+					category = arr[1];
+				else
+					System.out.println("Error in parsing...");
+				System.out.println("snehal category : " + category);
 			}
 			
+			System.out.println("response.indexOf(__category_start,startPoint) : " + response.indexOf(__category_start,startPoint));
+			System.out.println("response.indexOf(__start,startPoint) : " + response.indexOf(__category_start,startPoint));
 			while (response.indexOf(__category_start,startPoint) > response.indexOf(__start,startPoint)) {
 				startPoint = response.indexOf(__start);
 				response = response.substring(startPoint);

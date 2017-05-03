@@ -116,8 +116,7 @@ public class NotificationTester {
 	}
 
 	private static void processAnnouncement(OneNotification oneNotification) {
-		System.out.println("Found Announcement : " + oneNotification.get_id()
-				+ "   :     Text : " + oneNotification.getObj().getText());
+		//System.out.println("Found Announcement : " + oneNotification.get_id() + "   :     Text : " + oneNotification.getObj().getText());
 	}
 
 }

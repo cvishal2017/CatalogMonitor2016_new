@@ -19,7 +19,7 @@ public class VCAPUtils {
 		// VCAP_SERVICES is a system environment variable
 		// Parse it to obtain the for DB2 connection info
 		String VCAP_SERVICES = System.getenv("VCAP_SERVICES");
-		System.out.println("VCAP_SERVICES content: " + VCAP_SERVICES);
+		//System.out.println("VCAP_SERVICES content: " + VCAP_SERVICES);
 		if (VCAP_SERVICES == null) {
 			VCAP_SERVICES = "{\"cleardb\": [ { \"name\": \"CatalogDB\", \"label\": \"cleardb\", \"plan\": \"spark\",  \"credentials\": { \"jdbcUrl\": \"jdbc:mysql://us-cdbr-iron-east-04.cleardb.net/ad_9a7676bba3c7c97?user=b746b7c4ed97b8&password=e4bc0a01\", \"uri\": \"mysql://b746b7c4ed97b8:e4bc0a01@us-cdbr-iron-east-04.cleardb.net:3306/ad_9a7676bba3c7c97?reconnect=true\", \"name\": \"ad_9a7676bba3c7c97\", \"hostname\": \"us-cdbr-iron-east-04.cleardb.net\", \"port\": \"3306\", \"username\": \"b746b7c4ed97b8\", \"password\": \"e4bc0a01\" } } ] }";
 		}
@@ -28,7 +28,7 @@ public class VCAPUtils {
 			BasicDBObject obj = (BasicDBObject) JSON.parse(VCAP_SERVICES);
 			String thekey = null;
 			Set<String> keys = obj.keySet();
-			System.out.println("Searching through VCAP keys");
+			//System.out.println("Searching through VCAP keys");
 			// Look for the VCAP key that holds the SQLDB information
 			for (String eachkey : keys) {
 				System.out.println("Key is: " + eachkey);
@@ -44,7 +44,7 @@ public class VCAPUtils {
 			}
 			BasicDBList list = (BasicDBList) obj.get(thekey);
 			obj = (BasicDBObject) list.get("0");
-			System.out.println("Service found: " + obj.get("name"));
+			//System.out.println("Service found: " + obj.get("name"));
 			// parse all the credentials from the vcap env variable
 			obj = (BasicDBObject) obj.get("credentials");
 			_dbHost = (String) obj.get("hostname");

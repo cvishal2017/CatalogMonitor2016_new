@@ -61,7 +61,7 @@ public class SingleNotification {
 		}		
 		
 		try {
-			System.out.println("response1 : " + response1);
+			//System.out.println("response1 : " + response1);
 			list = objectMapper.readValue(response1, new TypeReference<List<OneNotification>>() { });
 			for(OneNotification notification : list)
 			{
@@ -71,7 +71,7 @@ public class SingleNotification {
 				{
 					if(notification.getObj().getType().equalsIgnoreCase("ANNOUNCEMENT")){
 						listOfAnnouncements.add(notification);
-						System.out.println(notification.toString());
+						//System.out.println(notification.toString());
 					}
 					bmNotification.addBluemixNotification(notification);
 				}
