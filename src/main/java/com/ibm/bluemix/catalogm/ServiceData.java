@@ -87,14 +87,23 @@ public class ServiceData {
 
 	private void setServiceData(String __serviceData) {
 		String endText = "</p>";
-		String beginTextServiceName = "<p class=\"text__headline--catalog\">";
+		String beginTextServiceName = "<p class=\"text__headline--catalog\"";
 		String _tmpString = __serviceData.substring(__serviceData.indexOf(beginTextServiceName));
 		// Part 1
 		// Sample <span class="tile-name">Apache Spark</span>
 		int i = _tmpString.indexOf(beginTextServiceName) + beginTextServiceName.length();
 		int j = _tmpString.indexOf(endText);
 		if (i > 0) {
-			seviceName = _tmpString.substring(i, j);
+			String _tmpStringService = _tmpString.substring(i, j);
+			
+			String tmpcat = _tmpStringService.substring(i, j);
+			String [] arr = tmpcat.split(">");
+			System.out.println("arr.length : " + arr.length);
+			if (arr.length > 0)
+				seviceName = arr[1];
+			else
+				System.out.println("Error in parsing...");
+			
 			setSeviceName(seviceName);
 		}
 
@@ -119,7 +128,13 @@ public class ServiceData {
 		i = beginTextProName.length();
 		j = _tmpString.indexOf(endText);
 		if (i > 0) {
-			vendor = _tmpString.substring(i, j);
+			String tmpcat = _tmpString.substring(i, j);
+			String [] arr = tmpcat.split(">");
+			System.out.println("arr.length : " + arr.length);
+			if (arr.length > 0)
+				vendor = arr[1];
+			else
+				System.out.println("Error in parsing...");
 			setVendor(vendor);
 		}
 
@@ -149,7 +164,13 @@ public class ServiceData {
 		i = beginTextDescName.length();
 		j = _descString.indexOf(endDescText);
 		if (i > 0) {
-			desc = _descString.substring(i, j);
+			String tmpcat = _descString.substring(i, j);
+			String [] arr = tmpcat.split(">");
+			System.out.println("arr.length : " + arr.length);
+			if (arr.length > 0)
+				desc = arr[1];
+			else
+				System.out.println("Error in parsing...");
 			setDesc(desc);
 		}
 		

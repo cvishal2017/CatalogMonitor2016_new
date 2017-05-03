@@ -37,7 +37,7 @@ public class Scheduler {
 		
 	
 	//@Scheduled(cron="0 0/360 * * * ?")
-	@Scheduled(cron="0 40 17 * * *" )
+	@Scheduled(cron="0 45 19 * * *" )
 	//@Scheduled(fixedRate=43200000)
 	//@Scheduled(fixedRate=86400000)
 	public void catalogCheck(){
@@ -183,15 +183,14 @@ public class Scheduler {
 			
 			startPoint = 0;
 			System.out.println("response.indexOf(__category_start,startPoint) : " + response.indexOf(__category_start,startPoint));
-			System.out.println("response.indexOf(__start,startPoint) : " + response.indexOf(__category_start,startPoint));
+			System.out.println("response.indexOf(__start,startPoint) : " + response.indexOf(__start,startPoint));
 			while (response.indexOf(__category_start,startPoint) > response.indexOf(__start,startPoint)) {
 				System.out.println("Inside second while...");
 				startPoint = response.indexOf(__start);
 				response = response.substring(startPoint);
 				startPoint = 0;
-				endPoint = response.indexOf(__category_end);
+				endPoint = response.indexOf(__end);
 				String __serviceData = response.substring(0, endPoint);
-			
 			
 				response = response.substring(endPoint);
 				servicesCount++;
