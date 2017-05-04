@@ -125,19 +125,22 @@ public class ServiceData {
 		// class="tile-stage-name">Beta</span>
 		String beginTextProName = "<div class=\"provider-tag\"";
 		endText = "</div>";
-		_tmpString = __serviceData.substring(__serviceData.indexOf(beginTextProName));
-		i = beginTextProName.length();
-		j = _tmpString.indexOf(endText);
-		if (i > 0) {
-			String tmpcat = _tmpString.substring(i, j);
-			String [] arr = tmpcat.split(">");
-			System.out.println("arr.length : " + arr.length);
-			if (arr.length > 1)
-				vendor = arr[1];
-			else
-				System.out.println("Error in parsing...");
-			setVendor(vendor);
+		if (__serviceData.indexOf(beginTextProName) != -1) {
+			_tmpString = __serviceData.substring(__serviceData.indexOf(beginTextProName));
+			i = beginTextProName.length();
+			j = _tmpString.indexOf(endText);
+			if (i > 0) {
+				String tmpcat = _tmpString.substring(i, j);
+				String [] arr = tmpcat.split(">");
+				System.out.println("arr.length : " + arr.length);
+				if (arr.length > 1)
+					vendor = arr[1];
+				else
+					System.out.println("Error in parsing...");
+				setVendor(vendor);
+			}
 		}
+		
 
 		// Part 4
 		//Stages like GA, Beta or experimental
@@ -166,20 +169,22 @@ public class ServiceData {
 		// Part 5
 		String beginTextDescName = "<p class=\"text__desc--catalog\"";
 		String endDescText = "</p>";
-		
-		String _descString = __serviceData.substring(__serviceData.indexOf(beginTextDescName));
-		i = beginTextDescName.length();
-		j = _descString.indexOf(endDescText);
-		if (i > 0) {
-			String tmpcat = _descString.substring(i, j);
-			String [] arr = tmpcat.split(">");
-			System.out.println("arr.length : " + arr.length);
-			if (arr.length > 1)
-				desc = arr[1];
-			else
-				System.out.println("Error in parsing...");
-			setDesc(desc);
+		if(__serviceData.indexOf(beginTextDescName) != -1) {
+			String _descString = __serviceData.substring(__serviceData.indexOf(beginTextDescName));
+			i = beginTextDescName.length();
+			j = _descString.indexOf(endDescText);
+			if (i > 0) {
+				String tmpcat = _descString.substring(i, j);
+				String [] arr = tmpcat.split(">");
+				System.out.println("arr.length : " + arr.length);
+				if (arr.length > 1)
+					desc = arr[1];
+				else
+					System.out.println("Error in parsing...");
+				setDesc(desc);
+			}
 		}
+		
 		
 		/*int startAlt = __serviceData.indexOf(beginTextDescName);
 		System.out.println("Start ALT is "+startAlt);
