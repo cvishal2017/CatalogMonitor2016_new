@@ -100,7 +100,7 @@ public class ServiceData {
 			System.out.println("ServicecData _tmpStringService : " + _tmpStringService);
 			String [] arr = _tmpStringService.split(">");
 			System.out.println("arr.length : " + arr.length);
-			if (arr.length > 0)
+			if (arr.length > 1)
 				seviceName = arr[1];
 			else
 				System.out.println("Error in parsing...");
@@ -133,7 +133,7 @@ public class ServiceData {
 				String tmpcat = _tmpString.substring(i, j);
 				String [] arr = tmpcat.split(">");
 				System.out.println("arr.length : " + arr.length);
-				if (arr.length > 0)
+				if (arr.length > 1)
 					vendor = arr[1];
 				else
 					System.out.println("Error in parsing...");
@@ -157,7 +157,7 @@ public class ServiceData {
 				String tmpcat = _tmpString.substring(i, j);
 				String [] arr = tmpcat.split(">");
 				System.out.println("arr.length : " + arr.length);
-				if (arr.length > 0)
+				if (arr.length > 1)
 					stage = arr[1];
 				else
 					System.out.println("Error in parsing...");
@@ -177,7 +177,7 @@ public class ServiceData {
 				String tmpcat = _descString.substring(i, j);
 				String [] arr = tmpcat.split(">");
 				System.out.println("arr.length : " + arr.length);
-				if (arr.length > 0)
+				if (arr.length > 1)
 					desc = arr[1];
 				else
 					System.out.println("Error in parsing...");

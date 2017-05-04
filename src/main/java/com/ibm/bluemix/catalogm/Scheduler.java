@@ -37,7 +37,7 @@ public class Scheduler {
 		
 	
 	//@Scheduled(cron="0 0/360 * * * ?")
-	@Scheduled(cron="0 15 12 * * *" )
+	@Scheduled(cron="0 0 13 * * *" )
 	//@Scheduled(fixedRate=43200000)
 	//@Scheduled(fixedRate=86400000)
 	public void catalogCheck(){
@@ -174,7 +174,7 @@ public class Scheduler {
 				System.out.println("tmpcat : " + tmpcat);
 				String [] arr = tmpcat.split(">");
 				System.out.println("arr.length : " + arr.length);
-				if (arr.length > 0)
+				if (arr.length > 1)
 					category = arr[1];
 				else
 					System.out.println("Error in parsing...");
