@@ -151,7 +151,13 @@ public class ServiceData {
 			i = beginTextStageName.length();
 			j = _tmpString.indexOf(endText);
 			if (i > 0) {
-				stage = _tmpString.substring(i, j);
+				String tmpcat = _tmpString.substring(i, j);
+				String [] arr = tmpcat.split(">");
+				System.out.println("arr.length : " + arr.length);
+				if (arr.length > 0)
+					stage = arr[1];
+				else
+					System.out.println("Error in parsing...");
 				setStage(stage);
 			}
 		}
