@@ -123,7 +123,7 @@ public class ServiceData {
 		// Part 3
 		// <span class="tile-provider-name">IBM</span><span
 		// class="tile-stage-name">Beta</span>
-		String beginTextProName = "<div class=\"provider-tag\">";
+		String beginTextProName = "<div class=\"provider-tag\"";
 		endText = "</div>";
 		_tmpString = __serviceData.substring(__serviceData.indexOf(beginTextProName));
 		i = beginTextProName.length();
@@ -141,7 +141,7 @@ public class ServiceData {
 
 		// Part 4
 		//Stages like GA, Beta or experimental
-		String beginTextStageName = "<div class=\"stage-tag\">";
+		String beginTextStageName = "<div class=\"stage-tag\"";
 		endText = "</div>";
 		int stageIndex = __serviceData.indexOf(beginTextStageName);
 		if(stageIndex<0){
