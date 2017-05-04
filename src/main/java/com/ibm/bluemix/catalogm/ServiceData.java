@@ -89,15 +89,16 @@ public class ServiceData {
 		String endText = "</p>";
 		String beginTextServiceName = "<p class=\"text__headline--catalog\"";
 		String _tmpString = __serviceData.substring(__serviceData.indexOf(beginTextServiceName));
+		
+		System.out.println("ServicecData _tmpString : " + _tmpString);
 		// Part 1
 		// Sample <span class="tile-name">Apache Spark</span>
 		int i = _tmpString.indexOf(beginTextServiceName) + beginTextServiceName.length();
 		int j = _tmpString.indexOf(endText);
 		if (i > 0) {
 			String _tmpStringService = _tmpString.substring(i, j);
-			
-			String tmpcat = _tmpStringService.substring(i, j);
-			String [] arr = tmpcat.split(">");
+			System.out.println("ServicecData _tmpStringService : " + _tmpStringService);
+			String [] arr = _tmpStringService.split(">");
 			System.out.println("arr.length : " + arr.length);
 			if (arr.length > 0)
 				seviceName = arr[1];
