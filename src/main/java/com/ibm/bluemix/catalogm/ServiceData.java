@@ -106,6 +106,7 @@ public class ServiceData {
 				System.out.println("Error in parsing...");
 			
 			setSeviceName(seviceName);
+			System.out.println("snehal service name : " + seviceName);
 		}
 
 		// Part 2
@@ -136,8 +137,9 @@ public class ServiceData {
 				if (arr.length > 1)
 					vendor = arr[1];
 				else
-					System.out.println("Error in parsing...");
+					vendor = "";
 				setVendor(vendor);
+				System.out.println("snehal vendor : " + vendor);
 			}
 		}
 		
@@ -164,6 +166,7 @@ public class ServiceData {
 				setStage(stage);
 			}
 		}
+		System.out.println("snehal stage : " + stage);
 		
 	
 		// Part 5
@@ -182,6 +185,7 @@ public class ServiceData {
 				else
 					System.out.println("Error in parsing...");
 				setDesc(desc);
+				System.out.println("snehal desc : " + desc);
 			}
 		}
 		
