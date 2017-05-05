@@ -6,10 +6,10 @@ import com.ibm.bluemix.catalogm.dao.BluemixCatalogDao;
 public class ServiceData {
 
 	String seviceName;
-	String catagory;
-	String vendor;
-	String desc;
-	String stage;
+	String catagory = "";
+	String vendor = "";
+	String desc = "";
+	String stage = "";
 
 	private BluemixCatalogDao catalogDao;
 
