@@ -37,7 +37,7 @@ public class Scheduler {
 		
 	
 	//@Scheduled(cron="0 0/360 * * * ?")
-	@Scheduled(cron="0 10 6 * * *" )
+	@Scheduled(cron="0 40 7 * * *" )
 	//@Scheduled(fixedRate=43200000)
 	//@Scheduled(fixedRate=86400000)
 	public void catalogCheck(){
@@ -194,7 +194,7 @@ public class Scheduler {
 			
 				response = response.substring(endPoint);
 				servicesCount++;
-				System.out.println(" ******** "+__serviceData);
+				//System.out.println(" ******** "+__serviceData);
 				//ServiceData myservice = new ServiceData(__serviceData);
 				ServiceData myservice = new ServiceData(__serviceData,__isExperimental);
 				myservice.setCatagory(category);
