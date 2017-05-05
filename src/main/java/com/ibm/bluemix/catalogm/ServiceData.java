@@ -138,7 +138,7 @@ public class ServiceData {
 					vendor = arr[1];
 				else
 					vendor = "";
-				setVendor(vendor);
+				//setVendor(vendor);
 				System.out.println("snehal vendor : " + vendor);
 			}
 		}
@@ -200,6 +200,8 @@ public class ServiceData {
 			desc = _tmpString.substring(i, j);
 			setDesc(desc);
 		}*/
+		
+		System.out.println("Done creating Object for : " + seviceName);
 
 	}
 
