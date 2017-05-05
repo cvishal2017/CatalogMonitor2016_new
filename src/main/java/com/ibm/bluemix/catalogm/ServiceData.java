@@ -162,7 +162,7 @@ public class ServiceData {
 				if (arr.length > 1)
 					stage = arr[1];
 				else
-					System.out.println("Error in parsing...");
+					stage = "";
 				setStage(stage);
 			}
 		}
@@ -183,7 +183,7 @@ public class ServiceData {
 				if (arr.length > 1)
 					desc = arr[1];
 				else
-					System.out.println("Error in parsing...");
+					desc = "";
 				setDesc(desc);
 				System.out.println("snehal desc : " + desc);
 			}
