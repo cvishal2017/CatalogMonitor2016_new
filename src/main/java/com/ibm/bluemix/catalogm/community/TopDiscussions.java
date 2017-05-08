@@ -39,7 +39,7 @@ public class TopDiscussions {
 	        {
 	        	Discussion disc = new Discussion();
 	            SyndEntry entry = (SyndEntry) entryIter.next();
-	            //System.out.println("Count : " + count++);
+	            System.out.println("Count : " + count++);
 	            System.out.println(entry.getTitle());
 	            
 	            disc.setTitle(entry.getTitle());
